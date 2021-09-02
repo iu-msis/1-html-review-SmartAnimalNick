@@ -1,41 +1,90 @@
 .navbar {
-    background-color: #F1F1D6; 
-  }
+  background-color: #F1F1D6;
+}
   
-  .logo {
-    border-radius: 50px;
-  }
+.logo {
+  border-radius: 50px;
+}
   
-  .nav-link {
-    color: #BF0003;
-    font-size: 18px;
-    margin-left: 20px;
-  }
+.nav-link {
+  color: #BF0003;
+  font-size: 18px;
+  margin-left: 20px;
+}
   
-  body {
-    background-color: #006283;
-  }
+body {
+  background-color: #006283;
+}
   
-  .col {
-    background-color: white;
-  }
+.col {
+  background-color: white;
+}
   
-  .img1 {
-    padding-top: 25px;
-    padding-left: 25px;
-    padding-right: 25px;
-    border-radius: 60px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.img1 {
+  padding-top: 25px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 60px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
   
-  .cite {
-    font-size: 12px;
-    color: black;
-    text-decoration: underline;
-  }
+.cite {
+  font-size: 12px;
+  color: black;
+  text-decoration: underline;
+}
   
-  .info {
-    font-size: 12px;
-  }
+.info {
+  font-size: 12px;
+}
+
+.user {
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  border-width: 1px;
+}
+
+#ray {
+  border-radius: 20px;
+}
+
+#info {
+  padding-top: 50px;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: lightgray;
+}
+
+table {
+  background-color: white;
+}
+
+thead {
+  background-color: #BF0003;
+  color: white;
+}
+
+tfoot {
+  background-color: #F1F1D6;
+  color: white;
+}
+
+.tableheader {
+  color: white;
+}
+
+.tablestyle {
+  padding: 20px;
+}
+
+form {
+  background-color: white;
+  padding: 20px;
+}
