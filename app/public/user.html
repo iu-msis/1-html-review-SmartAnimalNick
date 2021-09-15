@@ -35,30 +35,36 @@
     </nav>
 
 <center>
+  <div id="app">
     <div class="user container">
       <div class="row align-items-start">
       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         
-        <a href="img/ray.jpg" target="_blank">
-          <img src="img/ray.jpg" width="350" height="350" class="img-fluid" id="ray"</img>
+        <a v-bind:href="picture" target="_blank">
+          <img v-bind:src="picture" width="350" height="350" class="img-fluid" id="ray"></img>
         </a>
 
         <p class="info">Information From: <a class="cite" href="https://randomuser.me">randomuser.me</a></p>
       </div>
       <div id="info" class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <h6>Hi, my name is...</h6>
-        <h1>Ray Garrett</h1>
-        <p>Country: United States</p>
-        <p>Birthday: 6/5/1950</p>
-        <p>Age: 71 years old</p>
-        <p>E-Mail:<a href="mailto:ray.garrett@example.com"> ray.garrett@example.com</a></p>
+        <h1>{{firstName}} {{lastName}}</h1>
+        <p>Country: {{country}}</p>
+        <p>Birthday: {{dateDob}}</p>
+        <p>Age: {{ageDob}}</p>
+        <p>E-Mail: <a :href="`mailto:${email}`">{{email}}</a></p>
+        <button v-on:click="getUser()">Get Random User</button>
       </div>
     </div>
+  </div>
+  </div>
 </center>
 
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
+    <!-- Scripts from https://v3.vuejs.org -->
+    <script src="https://unpkg.com/vue@3.0.5"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
