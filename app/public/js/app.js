@@ -37,8 +37,16 @@ const SomeApp = {
         message: "Waiting ...",
       }
     },
-    created() {
 
+    computed: {
+      prettyBirthday() {
+        return dayjs(this.result.dob.date)
+        .format('D MMM YYYY')
+      }
+    },
+
+    methods: {
+      fetchUserData() {
         fetch('https://randomuser.me/api/')
         .then(response => response.json())
         .then((json) => {
@@ -48,6 +56,11 @@ const SomeApp = {
         .catch( (error) => {
             console.error(error);
         });
+      }
+    },
+
+    created() {
+      this.fetchUserData();
     }
   }
   
