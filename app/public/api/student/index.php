@@ -3,7 +3,7 @@
 require 'class/DbConnection.php';
 
 // print_R($_ENV);
-echo getenv('MYSQL_DATABASE');
+// echo getenv('MYSQL_DATABASE');
 
 
 // Step 1: Get a datase connection from our helper class
