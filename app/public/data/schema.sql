@@ -4,6 +4,18 @@
 CREATE DATABASE IF NOT EXISTS msisdb;
 USE msisdb;
 
+DROP TABLE IF EXISTS students;
+CREATE TABLE students (
+	id int PRIMARY KEY AUTO_INCREMENT ,
+    username varchar(24) UNIQUE NOT NULL,
+    name varchar(48)
+);
+
+INSERT INTO students (id, username, name) VALUES 
+(1, 'tomgreg', 'Tom Gregory'),
+(2, 'beth1', 'Beth Barnhart'),
+(3, 'bipin', 'Prof. Prabhakar');
+
 DROP TABLE IF EXISTS books;
 
 CREATE TABLE books (
@@ -17,7 +29,7 @@ CREATE TABLE books (
 );
 
 INSERT INTO books (id, booktitle, authorname, pubyear, pubname, pgcount, msrp) VALUES 
-(1, 'Let’s Go Rock Collecting', 'Roma Gans', 2018, 'Kids Co.', 13, '$59.49' ),
+(1, 'Lets Go Rock Collecting', 'Roma Gans', 2018, 'Kids Co.', 13, '$59.49' ),
 (2, 'Everything Rocks and Minerals', 'Steve Tomecek', 1998, 'National Geographic', 28, '$4.99' ),
 (3, 'If You Find a Rock', 'Peggy Christian', 2010, 'Barb Lember', 17, '$18.99' ),
 (4, 'Rocks, Fossils, & Arrowheads', 'Laura Evert', 2020, 'Ages 6 and Up', 64, '$9.98' ),
