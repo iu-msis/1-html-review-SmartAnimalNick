@@ -34,142 +34,74 @@
       </div>
     </nav>
 
-    
-    <div class="tablestyle">
-    <h1 class="tableheader">Table</h1>
-      <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
-        
-        <thead>
-          <tr>
-            <th>Title</th>	
-            <th>Author(s)</th>
-            <th>Year Published</th>
-            <th>Publisher</th>	
-            <th>Page Count</th>
-            <th>MSRP</th>
-          </tr>
-        </thead>
+    <div id="someApp" class="container tablestyle">    
+      <h1 class="tableheader">Table</h1>
+          <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
+            <thead>
+              <tr>
+                <th>Title</th>	
+                <th>Author(s)</th>
+                <th>Year Published</th>
+                <th>Publisher</th>	
+                <th>Page Count</th>
+                <th>MSRP</th>
+              </tr>
+            </thead>
 
-        <tbody>
-          <tr>
-            <td>Let’s Go Rock Collecting</td>
-            <td>Roma Gans</td>
-            <td>2018</td>
-            <td>Kid's Co.</td>
-            <td>13</td>
-            <td>$59.49</td>
-          <tr>
-            <td>Everything Rocks and Minerals</td>
-            <td>Steve Tomecek</td>
-            <td>1998</td>
-            <td>National Geographic</td>
-            <td>28</td>
-            <td>$4.99</td>
-          </tr>
-          <tr>
-            <td>If You Find a Rock</td>
-            <td>Peggy Christian</td>
-            <td>2010</td>
-            <td>Barb Lember</td>
-            <td>17</td>
-            <td>$18.99</td>
-          </tr>
-          <tr>
-            <td>Rocks, Fossils, & Arrowheads</td>
-            <td>Laura Evert</td>
-            <td>2020</td>
-            <td>Ages 6 and Up</td>
-            <td>64</td>
-            <td>$9.98</td>
-          </tr>
-          <tr>
-            <td>A Rock is Lively</td>
-            <td>Diana Hutts Aston</td>
-            <td>1921</td>
-            <td>NY Publishing</td>
-            <td>22</td>
-            <td>$2.99</td>
-          </tr>
-        </tbody>
+            <tbody>
+              <tr v-for="book in books">
+                <td>{{ book.booktitle }}</td>
+                <td>{{ book.authorname }} </td>
+                <td>{{ book.pubyear }} </td>
+                <td>{{ book.pubname }} </td>
+                <td>{{ book.pgcount }} </td>
+                <td>{{ book.msrp }} </td>
+                </tr>
+            </tbody>
 
-        <tfoot>
-          <tr>
-            <td colspan="6"></td>
-          </tr>
-        </tfoot>
-      </table>
+            <tfoot>
+              <tr>
+                <td colspan="6"></td>
+              </tr>
+            </tfoot>
+          </table>
+          <h1 class="tableheader">Form</h1>
 
-<div id="someApp" class="container">
-<table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
-      <thead>
-        <tr>
-          <th>Title</th>	
-          <th>Author(s)</th>
-          <th>Year Published</th>
-          <th>Publisher</th>	
-          <th>Page Count</th>
-          <th>MSRP</th>
-        </tr>
-      </thead>
+          <form v-on:submit.prevent="postNewBook">
+            <div class="mb-3">
+            <p><label for="booktitle">Book Title:</label>
+            <input type="text" v-model="bookForm.booktitle" name="booktitle" class="form-control" id="booktitle" placeholder="Enter Book Title"></p>
+            </div>
+          
+            <div class="mb-3">
+            <p><label for="authorname">Author(s) Name:</label>
+            <input type="text" v-model="bookForm.authorname" name="authorname" class="form-control" id="authorname" placeholder="Enter Author Name"></p>
+            </div>
 
-      <tbody>
-        <tr v-for="book in books">
-          <td>{{ book.booktitle }}</td>
-          <td>{{ book.authorname }} </td>
-          <td>{{ book.pubyear }} </td>
-          <td>{{ book.pubname }} </td>
-          <td>{{ book.pgcount }} </td>
-          <td>{{ book.msrp }} </td>
-          </tr>
-      </tbody>
+            <div class="mb-3">
+            <p><label for="pubyear">Year Published:</label>
+            <input type="number" v-model="bookForm.pubyear" name="pubyear" class="form-control" id="pubyear" placeholder="Enter Year Published"></p>
+            </div>
 
-      <tfoot>
-        <tr>
-          <td colspan="6"></td>
-        </tr>
-      </tfoot>
-    </table>
-</div>
+            <div class="mb-3">
+            <p><label for="pubname">Publisher:</label>
+            <input type="text" v-model="bookForm.pubname" name="pubname" class="form-control" id="pubname" placeholder="Enter Publisher Name"></p>
+            </div>
 
+            <div class="mb-3">
+            <p><label for="pgcount">Page Count:</label>
+            <input type="number" v-model="bookForm.pgcount" name="pgcount" class="form-control" id="pgcount" placeholder="Enter Page Count"></p>
+            </div>
 
-      <h1 class="tableheader">Form</h1>
+            <div class="mb-3">
+            <p><label for="msrp">MSRP:</label>
+            <input type="text" v-model="bookForm.msrp" name="msrp" class="form-control" id="msrp" placeholder="Enter MSRP"></p>
+            </div>
 
-      <form v-on:submit.prevent="postNewOffer">
-        <div class="mb-3">
-        <p><label for="booktitle">Book Title:</label>
-        <input type="text" v-model="offerForm.booktitle" name="booktitle" class="form-control" id="booktitle" placeholder="Enter Book Title"></p>
-        </div>
-      
-        <div class="mb-3">
-        <p><label for="authorname">Author(s) Name:</label>
-        <input type="text" v-model="offerForm.authorname" name="authorname" class="form-control" id="authorname" placeholder="Enter Author Name"></p>
-        </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
 
-        <div class="mb-3">
-        <p><label for="pubyear">Year Published:</label>
-        <input type="number" v-model="offerForm.pubyear" name="pubyear" class="form-control" id="pubyear" placeholder="Enter Year Published"></p>
-        </div>
-
-        <div class="mb-3">
-        <p><label for="pubname">Publisher:</label>
-        <input type="text" v-model="offerForm.pubname" name="pubname" class="form-control" id="pubname" placeholder="Enter Publisher Name"></p>
-        </div>
-
-        <div class="mb-3">
-        <p><label for="pgcount">Page Count:</label>
-        <input type="number" v-model="offerForm.pgcount" name="pgcount" class="form-control" id="pgcount" placeholder="Enter Page Count"></p>
-        </div>
-
-        <div class="mb-3">
-        <p><label for="msrp">MSRP:</label>
-        <input type="text" v-model="offerForm.msrp" name="msrp" class="form-control" id="msrp" placeholder="Enter MSRP"></p>
-        </div>
-
-        <p><input type="submit" name="submit" id="submit" value="Submit"></p>
-
-      </form> 
+          </form> 
     </div>
-  
 
     <!-- jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

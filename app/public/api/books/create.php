@@ -19,7 +19,7 @@ try {
 //     exit;
 // }
 
-require("DbConnection.php");
+require("class/DbConnection.php");
 
 
 // Step 0: Validate the incoming data
@@ -32,7 +32,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO offer (booktitle, authorname, pubyear, pubname, pgcount, msrp)
+  'INSERT INTO books (booktitle, authorname, pubyear, pubname, pgcount, msrp)
   VALUES (?, ?, ?, ?, ?, ?)'
 );
 
@@ -47,10 +47,10 @@ $stmt->execute([
 
 // Get auto-generated PK from DB
 // https://www.php.net/manual/en/pdo.lastinsertid.php
-$pk = $db->lastInsertId();  
+// $pk = $db->lastInsertId();  
 
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../offer/?student=' . $pk);
+header('Location: ../books/');
